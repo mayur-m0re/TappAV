@@ -16,12 +16,12 @@ function HeroSection({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <section className="section-pinned relative flex items-center justify-center">
       {/* Background image */}
-      <div 
+      <div
         className={`absolute inset-0 transition-all duration-1000 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
       >
-        <img 
-          src="/images/hero_projected_light.jpg" 
-          alt="Cinematic projection" 
+        <img
+          src={`${import.meta.env.BASE_URL}images/hero_projected_light.jpg`}
+          alt="Cinematic projection"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-tappav-bg/60 via-transparent to-tappav-bg" />
@@ -46,7 +46,7 @@ function HeroSection({ onNavigate }: { onNavigate: (page: string) => void }) {
 
         {/* CTA */}
         <div className={`mt-6 transition-all duration-700 delay-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <button 
+          <button
             onClick={() => onNavigate('product')}
             className="link-underline text-tappav-text font-medium inline-flex items-center gap-2"
           >
@@ -60,13 +60,13 @@ function HeroSection({ onNavigate }: { onNavigate: (page: string) => void }) {
       <div className="absolute bottom-[8vh] left-0 right-0 px-[7vw]">
         <div className="flex flex-col md:flex-row gap-4 md:gap-[3vw]">
           {/* Home Theater Card */}
-          <div 
+          <div
             className={`flex-1 card-premium relative overflow-hidden group cursor-pointer transition-all duration-700 delay-600 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[18vh]'}`}
             style={{ height: 'clamp(160px, 26vh, 280px)' }}
           >
-            <img 
-              src="/images/hero_card_home_theater.jpg" 
-              alt="Home Theater" 
+            <img
+              src={`${import.meta.env.BASE_URL}images/hero_card_home_theater.jpg`}
+              alt="Home Theater"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-tappav-bg/90 via-tappav-bg/30 to-transparent" />
@@ -77,13 +77,13 @@ function HeroSection({ onNavigate }: { onNavigate: (page: string) => void }) {
           </div>
 
           {/* Pro Audio Card */}
-          <div 
+          <div
             className={`flex-1 card-premium relative overflow-hidden group cursor-pointer transition-all duration-700 delay-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[18vh]'}`}
             style={{ height: 'clamp(160px, 26vh, 280px)' }}
           >
-            <img 
-              src="/images/hero_card_pro_audio.jpg" 
-              alt="Pro Audio" 
+            <img
+              src={`${import.meta.env.BASE_URL}images/hero_card_pro_audio.jpg`}
+              alt="Pro Audio"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-tappav-bg/90 via-tappav-bg/30 to-transparent" />
@@ -124,26 +124,26 @@ function FeaturedSection({ onNavigate }: { onNavigate: (page: string) => void })
     <section ref={sectionRef} className="section-pinned relative flex items-center justify-center">
       {/* Background */}
       <div className="absolute inset-0">
-        <img 
-          src="/images/featured_projector_showroom.jpg" 
-          alt="Projector showroom" 
+        <img
+          src={`${import.meta.env.BASE_URL}images/featured_showroom.jpg`}
+          alt="Projector showroom"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-tappav-bg/70" />
       </div>
 
       {/* Product Card */}
-      <div 
+      <div
         className={`relative z-10 w-[80vw] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-[20vh] scale-95'}`}
       >
         <div className="card-premium relative overflow-hidden" style={{ height: 'clamp(300px, 48vh, 500px)' }}>
-          <img 
-            src="/images/featured_projector_product.jpg" 
-            alt="4K Laser Projector" 
+          <img
+            src={`${import.meta.env.BASE_URL}images/featured_projector_product.jpg`}
+            alt="4K Laser Projector"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-tappav-bg/95 via-tappav-bg/60 to-transparent" />
-          
+
           {/* Card Content */}
           <div className="absolute bottom-0 left-0 p-8 md:p-12">
             <span className={`micro-label text-tappav-accent mb-3 block transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -157,7 +157,7 @@ function FeaturedSection({ onNavigate }: { onNavigate: (page: string) => void })
             </p>
             <div className={`flex items-center gap-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               <span className="text-2xl font-bold text-tappav-text">$2,499</span>
-              <button 
+              <button
                 onClick={() => onNavigate('product')}
                 className="btn-accent inline-flex items-center gap-2"
               >
@@ -200,12 +200,12 @@ function ProductGridSection() {
   }, []);
 
   const products = [
-    { name: '4K Laser Projector', spec: 'HDR10+ · 3,000 lm', price: '$2,499', image: '/images/grid_projector_thumb.jpg' },
-    { name: 'Wireless Headphones', spec: 'ANC · 40 hr battery', price: '$349', image: '/images/grid_headphones_thumb.jpg' },
-    { name: 'Studio Monitor 32"', spec: '4K · 99% Adobe RGB', price: '$1,199', image: '/images/grid_monitor_thumb.jpg' },
-    { name: 'Pro Soundbar', spec: 'Dolby Atmos · HDMI eARC', price: '$599', image: '/images/grid_soundbar_thumb.jpg' },
-    { name: 'Smart Streaming Box', spec: 'Wi-Fi 6 · Voice remote', price: '$129', image: '/images/grid_streamer_thumb.jpg' },
-    { name: 'Ceiling Mount Kit', spec: 'Universal · Tool-free', price: '$89', image: '/images/grid_mount_thumb.jpg' },
+    { name: '4K Laser Projector', spec: 'HDR10+ · 3,000 lm', price: '$2,499', image: `${import.meta.env.BASE_URL}images/grid_projector_thumb.jpg` },
+    { name: 'Wireless Headphones', spec: 'ANC · 40 hr battery', price: '$349', image: `${import.meta.env.BASE_URL}images/grid_headphones_thumb.jpg` },
+    { name: 'Studio Monitor 32"', spec: '4K · 99% Adobe RGB', price: '$1,199', image: `${import.meta.env.BASE_URL}images/grid_monitor_thumb.jpg` },
+    { name: 'Pro Soundbar', spec: 'Dolby Atmos · HDMI eARC', price: '$599', image: `${import.meta.env.BASE_URL}images/grid_soundbar_thumb.jpg` },
+    { name: 'Smart Streaming Box', spec: 'Wi-Fi 6 · Voice remote', price: '$129', image: `${import.meta.env.BASE_URL}images/grid_streamer_thumb.jpg` },
+    { name: 'Ceiling Mount Kit', spec: 'Universal · Tool-free', price: '$89', image: `${import.meta.env.BASE_URL}images/grid_mount_thumb.jpg` },
   ];
 
   return (
@@ -221,20 +221,20 @@ function ProductGridSection() {
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product, index) => (
-          <div 
+          <div
             key={product.name}
             className={`card-premium-sm bg-tappav-bg-secondary card-hover-lift cursor-pointer transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             style={{ transitionDelay: `${(index + 1) * 100}ms` }}
           >
             {/* Image */}
             <div className="aspect-[4/3] overflow-hidden img-hover-zoom">
-              <img 
-                src={product.image} 
-                alt={product.name} 
+              <img
+                src={product.image}
+                alt={product.name}
                 className="w-full h-full object-cover"
               />
             </div>
-            
+
             {/* Content */}
             <div className="p-6">
               <h3 className="font-heading font-bold text-lg text-tappav-text mb-1">{product.name}</h3>
@@ -279,26 +279,26 @@ function FeatureSection({ onNavigate }: { onNavigate: (page: string) => void }) 
     <section ref={sectionRef} className="section-pinned relative flex items-center justify-center">
       {/* Background */}
       <div className="absolute inset-0">
-        <img 
-          src="/images/feature_color_control_room.jpg" 
-          alt="Color control room" 
+        <img
+          src={`${import.meta.env.BASE_URL}images/feature_color_control_room.jpg`}
+          alt="Color control room"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-tappav-bg/60" />
       </div>
 
       {/* Feature Card */}
-      <div 
+      <div
         className={`relative z-10 w-[88vw] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[20vw]'}`}
       >
         <div className="card-premium relative overflow-hidden" style={{ height: 'clamp(320px, 52vh, 540px)' }}>
-          <img 
-            src="/images/feature_wide_card_display.jpg" 
-            alt="Cinema-grade color display" 
+          <img
+            src={`${import.meta.env.BASE_URL}images/feature_color_display.jpg`}
+            alt="Cinema-grade color display"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-tappav-bg/95 via-tappav-bg/50 to-transparent" />
-          
+
           {/* Card Content */}
           <div className="absolute bottom-0 left-0 p-8 md:p-12 max-w-2xl">
             <h2 className={`headline-2 text-tappav-text mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
@@ -307,7 +307,7 @@ function FeatureSection({ onNavigate }: { onNavigate: (page: string) => void }) 
             <p className={`text-tappav-text-muted text-lg mb-6 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               A wide color gamut, calibrated gamma, and laser stability—so every frame feels intentional.
             </p>
-            <button 
+            <button
               onClick={() => onNavigate('product')}
               className={`link-underline text-tappav-text font-medium inline-flex items-center gap-2 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
@@ -348,9 +348,9 @@ function CategorySection() {
       {/* Background */}
       <div className="absolute inset-0 bg-tappav-bg">
         <div className="absolute inset-0 opacity-30">
-          <img 
-            src="/images/closing_abstract_texture.jpg" 
-            alt="Abstract texture" 
+          <img
+            src={`${import.meta.env.BASE_URL}images/closing_abstract_texture.jpg`}
+            alt="Abstract texture"
             className="w-full h-full object-cover"
           />
         </div>
@@ -360,13 +360,13 @@ function CategorySection() {
       <div className="relative z-10 w-full px-[7vw]">
         <div className="flex flex-col md:flex-row gap-6 md:gap-[3vw]">
           {/* Home Theater Card */}
-          <div 
+          <div
             className={`flex-1 card-premium relative overflow-hidden group cursor-pointer transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-[20vw]'}`}
             style={{ height: 'clamp(400px, 64vh, 600px)' }}
           >
-            <img 
-              src="/images/category_home_theater_room.jpg" 
-              alt="Home Theater" 
+            <img
+              src={`${import.meta.env.BASE_URL}images/category_home_theater_living_room.jpg`}
+              alt="Home Theater"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-tappav-bg/95 via-tappav-bg/40 to-transparent" />
@@ -378,13 +378,13 @@ function CategorySection() {
           </div>
 
           {/* Pro Audio Card */}
-          <div 
+          <div
             className={`flex-1 card-premium relative overflow-hidden group cursor-pointer transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[20vw]'}`}
             style={{ height: 'clamp(400px, 64vh, 600px)' }}
           >
-            <img 
-              src="/images/category_pro_audio_studio.jpg" 
-              alt="Pro Audio" 
+            <img
+              src={`${import.meta.env.BASE_URL}images/category_pro_audio_studio.jpg`}
+              alt="Pro Audio"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-tappav-bg/95 via-tappav-bg/40 to-transparent" />
@@ -434,26 +434,26 @@ function PromiseSection() {
     <section ref={sectionRef} className="section-pinned relative flex items-center justify-center">
       {/* Background */}
       <div className="absolute inset-0">
-        <img 
-          src="/images/promise_install_scene.jpg" 
-          alt="Installation scene" 
+        <img
+          src={`${import.meta.env.BASE_URL}images/installation_scene.jpg`}
+          alt="Installation scene"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-tappav-bg/70" />
       </div>
 
       {/* Promise Card */}
-      <div 
+      <div
         className={`relative z-10 w-[80vw] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[20vh]'}`}
       >
         <div className="card-premium relative overflow-hidden" style={{ height: 'clamp(300px, 48vh, 500px)' }}>
-          <img 
-            src="/images/promise_card_meeting.jpg" 
-            alt="Team meeting" 
+          <img
+            src={`${import.meta.env.BASE_URL}images/installation_scene.jpg`}
+            alt="Team meeting"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-tappav-bg/95 via-tappav-bg/60 to-transparent" />
-          
+
           {/* Card Content */}
           <div className="absolute bottom-0 left-0 p-8 md:p-12 max-w-xl">
             <h2 className={`headline-2 text-tappav-text mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
@@ -462,7 +462,7 @@ function PromiseSection() {
             <p className={`text-tappav-text-muted text-lg mb-6 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               Quiet operation. Flexible install. Support that answers in minutes.
             </p>
-            <button 
+            <button
               className={`link-underline text-tappav-text font-medium inline-flex items-center gap-2 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
               Read our story
@@ -508,9 +508,9 @@ function NewsletterSection() {
     <section ref={sectionRef} className="section-flowing py-24 px-[6vw] bg-tappav-bg relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute bottom-0 right-0 w-1/2 h-1/2 opacity-20">
-        <img 
-          src="/images/closing_abstract_texture.jpg" 
-          alt="" 
+        <img
+          src={`${import.meta.env.BASE_URL}images/newsletter_accent.jpg`}
+          alt=""
           className="w-full h-full object-cover"
         />
       </div>
@@ -525,11 +525,11 @@ function NewsletterSection() {
         </div>
 
         {/* Form */}
-        <form 
+        <form
           onSubmit={handleSubmit}
           className={`flex flex-col sm:flex-row gap-4 mb-12 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
-          <input 
+          <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

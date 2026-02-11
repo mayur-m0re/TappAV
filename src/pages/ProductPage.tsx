@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { 
-  Check, 
-  ShoppingCart, 
-  Star, 
-  Zap, 
-  Monitor, 
-  Volume2, 
+import {
+  Check,
+  ShoppingCart,
+  Star,
+  Zap,
+  Monitor,
+  Volume2,
   Settings,
   ChevronRight,
   Shield,
@@ -22,37 +22,36 @@ interface ProductPageProps {
 function ProductGallery() {
   const [activeImage, setActiveImage] = useState(0);
   const images = [
-    { src: '/images/epson_ls12000_hero.jpg', alt: 'Epson LS12000 Front View' },
-    { src: '/images/epson_ls12000_detail.jpg', alt: 'Epson LS12000 Lens Detail' },
-    { src: '/images/epson_ls12000_lifestyle.jpg', alt: 'Epson LS12000 in Home Theater' },
-    { src: '/images/featured_projector_product.jpg', alt: 'Epson LS12000 Side View' },
+    { src: `${import.meta.env.BASE_URL}images/epson_ls12000_hero.jpg`, alt: 'Epson LS12000 Front View' },
+    { src: `${import.meta.env.BASE_URL}images/epson_ls12000_detail.jpg`, alt: 'Epson LS12000 Lens Detail' },
+    { src: `${import.meta.env.BASE_URL}images/epson_ls12000_lifestyle.jpg`, alt: 'Epson LS12000 in Home Theater' },
+    { src: `${import.meta.env.BASE_URL}images/featured_projector_product.jpg`, alt: 'Epson LS12000 Side View' },
   ];
 
   return (
     <div className="space-y-4">
       {/* Main Image */}
       <div className="card-premium overflow-hidden aspect-video relative">
-        <img 
-          src={images[activeImage].src} 
+        <img
+          src={images[activeImage].src}
           alt={images[activeImage].alt}
           className="w-full h-full object-cover transition-transform duration-500"
         />
       </div>
-      
+
       {/* Thumbnails */}
       <div className="flex gap-3">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => setActiveImage(index)}
-            className={`flex-1 aspect-video rounded-xl overflow-hidden border-2 transition-all ${
-              activeImage === index 
-                ? 'border-tappav-accent opacity-100' 
-                : 'border-transparent opacity-60 hover:opacity-80'
-            }`}
+            className={`flex-1 aspect-video rounded-xl overflow-hidden border-2 transition-all ${activeImage === index
+              ? 'border-tappav-accent opacity-100'
+              : 'border-transparent opacity-60 hover:opacity-80'
+              }`}
           >
-            <img 
-              src={image.src} 
+            <img
+              src={image.src}
               alt={image.alt}
               className="w-full h-full object-cover"
             />
@@ -223,23 +222,23 @@ function ProductPage({ onNavigate }: ProductPageProps) {
 
             {/* Description */}
             <p className="text-tappav-text-muted leading-relaxed">
-              Experience cinema-quality projection at home with the Epson Pro Cinema LS12000. 
-              Featuring 4K PRO-UHD resolution, advanced laser light source, and HDR10+ support 
-              for breathtaking image quality. The precision VRX lens and motorized adjustments 
+              Experience cinema-quality projection at home with the Epson Pro Cinema LS12000.
+              Featuring 4K PRO-UHD resolution, advanced laser light source, and HDR10+ support
+              for breathtaking image quality. The precision VRX lens and motorized adjustments
               ensure perfect alignment in any room.
             </p>
 
             {/* Quantity & Add to Cart */}
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex items-center bg-tappav-bg-secondary rounded-full px-4 py-2">
-                <button 
+                <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="w-8 h-8 flex items-center justify-center text-tappav-text hover:text-tappav-accent transition-colors"
                 >
                   -
                 </button>
                 <span className="w-12 text-center text-tappav-text font-medium">{quantity}</span>
-                <button 
+                <button
                   onClick={() => setQuantity(quantity + 1)}
                   className="w-8 h-8 flex items-center justify-center text-tappav-text hover:text-tappav-accent transition-colors"
                 >
@@ -279,10 +278,10 @@ function ProductPage({ onNavigate }: ProductPageProps) {
             Engineered for the ultimate home theater experience
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={feature.title}
               className="animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
@@ -301,7 +300,7 @@ function ProductPage({ onNavigate }: ProductPageProps) {
             <h2 className="headline-3 text-tappav-text mb-8">TECHNICAL SPECIFICATIONS</h2>
             <div className="card-premium-sm bg-tappav-bg-secondary p-6">
               {specifications.map((spec, index) => (
-                <div 
+                <div
                   key={spec.label}
                   className="animate-fade-in-up"
                   style={{ animationDelay: `${index * 30}ms` }}
@@ -318,7 +317,7 @@ function ProductPage({ onNavigate }: ProductPageProps) {
             <div className="card-premium-sm bg-tappav-bg-secondary p-6">
               <ul className="space-y-4">
                 {boxContents.map((item, index) => (
-                  <li 
+                  <li
                     key={item}
                     className="flex items-center gap-3 animate-fade-in-up"
                     style={{ animationDelay: `${index * 50}ms` }}
@@ -352,7 +351,7 @@ function ProductPage({ onNavigate }: ProductPageProps) {
       <section className="px-[6vw] py-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="headline-3 text-tappav-text">COMPLETE YOUR SETUP</h2>
-          <button 
+          <button
             onClick={() => onNavigate('home')}
             className="link-underline text-tappav-text text-sm font-medium inline-flex items-center gap-2"
           >
@@ -363,18 +362,18 @@ function ProductPage({ onNavigate }: ProductPageProps) {
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { name: 'Ceiling Mount Kit', price: '$149', image: '/images/grid_mount_thumb.jpg' },
-            { name: 'Pro Soundbar', price: '$599', image: '/images/grid_soundbar_thumb.jpg' },
-            { name: 'Smart Streaming Box', price: '$129', image: '/images/grid_streamer_thumb.jpg' },
+            { name: 'Ceiling Mount Kit', price: '$149', image: `${import.meta.env.BASE_URL}images/grid_mount_thumb.jpg` },
+            { name: 'Pro Soundbar', price: '$599', image: `${import.meta.env.BASE_URL}images/grid_soundbar_thumb.jpg` },
+            { name: 'Smart Streaming Box', price: '$129', image: `${import.meta.env.BASE_URL}images/grid_streamer_thumb.jpg` },
           ].map((product, index) => (
-            <div 
+            <div
               key={product.name}
               className="card-premium-sm bg-tappav-bg-secondary card-hover-lift cursor-pointer animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="aspect-video overflow-hidden img-hover-zoom">
-                <img 
-                  src={product.image} 
+                <img
+                  src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
@@ -395,7 +394,7 @@ function ProductPage({ onNavigate }: ProductPageProps) {
 
       {/* Back to Home */}
       <section className="px-[6vw] py-8 border-t border-tappav-text-muted/10">
-        <button 
+        <button
           onClick={() => onNavigate('home')}
           className="inline-flex items-center gap-2 text-tappav-text-muted hover:text-tappav-text transition-colors"
         >
