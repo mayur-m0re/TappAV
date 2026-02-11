@@ -1,0 +1,105 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure full-width sections */
+.section-pinned,
+.section-flowing {
+  width: 100%;
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (height: 100dvh) {
+  .section-pinned {
+    height: 100dvh;
+  }
+}
+
+/* Loading state */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headline-1 {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+  
+  .headline-2 {
+    font-size: clamp(28px, 6vw, 34px);
+  }
+  
+  .headline-3 {
+    font-size: clamp(20px, 4vw, 24px);
+  }
+  
+  .card-premium {
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline-1 {
+    font-size: 28px;
+  }
+  
+  .headline-2 {
+    font-size: 24px;
+  }
+  
+  .card-premium {
+    border-radius: 18px;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #B8FF3D;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(184, 255, 61, 0.3);
+  color: #F4F6FA;
+}
+
+/* Prevent text selection on interactive elements */
+button,
+[role="button"] {
+  user-select: none;
+}
+
+/* Image loading placeholder */
+img {
+  background-color: #12131A;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[src=""] {
+  opacity: 0;
+}
